@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Names
+{% endblock title %}
+
+{% block content %}
+<div class="main-content">
+    <header>
+    <h1>Name-lister</h1>
+    </header>
+
+    <nav>
+        <b>
+        <a href="{% url 'home' %}">Home</a>
+        &nbsp
+            <a href="{% url 'upload' %}">Upload</a>
+
+        </b>
+    </nav>
+    <br>
+                     <hr>
+
+        <h3>Upload JSON</h3>
+    <br>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+        <input type="file" name="json" class="btn btn-primary form-submit-btn">
+            <button type="submit">Upload file</button>
+        </form>
+        <form method="GET">
+            <button type="get">Update names</button>
+
+        </form>
+    </div>
+</div>
+{% endblock content %}
