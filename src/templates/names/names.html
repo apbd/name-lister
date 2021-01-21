@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Names
+Name Lister
 {% endblock title %}
 
 {% block content %}
 <div class="main-content">
     <header>
-    <h1>Name-lister</h1>
+    <h1>Name Lister</h1>
     </header>
    <hr>
         {% include 'navbar.html' %}
    <hr>
+    <div>
+            <button type="sort" name="ascending">Sort names (asc)</button>
+        <button type="sort" name="descending">Sort names (des)</button>
+
+    </div>
     <div>
         <table class="table">
             <tr>

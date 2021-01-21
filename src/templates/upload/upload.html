@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Names
+Name Lister
 {% endblock title %}
 
 {% block content %}
 
 <div class="main-content">
     <header>
-    <h1>Name-lister</h1>
+    <h1>Name Lister</h1>
     </header>
 
    <hr>
@@ -28,10 +28,8 @@ Names
         <input type="file" name="json" class="btn btn-primary form-submit-btn">
             <button type="submit">Upload file</button>
         </form>
-        <form method="GET">
-            <button type="get">Update names</button>
+        <p>Uploaded file: {{uploaded_file}}</p>
 
-        </form>
     </div>
 </div>
 {% endblock content %}

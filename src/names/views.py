@@ -15,6 +15,11 @@ from pprint import pprint
 def names_view(request):
     name_list = Person.objects.all()
 
+    if request.GET.get('sort') == "ascending":
+        name_list = Person.objects.order_by('-amount')[0:]
+    elif request.GET.get('sort') == "descending":
+        name_list = Person.objects.order_by('amount')[0:]
+
     context = {
         'name_list': name_list,
     }
@@ -23,43 +28,31 @@ def names_view(request):
 
 
 def upload_view(request):
-    """
-    if request.method == 'POST':
-        json_file_form = UploadJsonFileForm(request.POST, request.FILES)
-        print("S")
-
-        if json_file_form.is_valid():
-            # file is saved
-            handle_uploaded_file(request.FILES['file'])
-            json_file_form.save()
-            messages.success(request, 'Name and amount added.')
-    else:
-        json_file_form = UploadJsonFileForm()
-        """
     try:
         uploaded_file = None
-        if request.method == 'GET':
-            add_names_to_database(read_names_json())
 
         if request.method == 'POST':
             uploaded_file = request.FILES['json']
+            # if uploaded file is JSON
             if uploaded_file.content_type == "application/json":
-                print(uploaded_file.name)
-                print(uploaded_file.content_type)
-                handle_uploaded_file(request.FILES['json'])
-                read_names_json()
+
+                # write uploaded file to names.json
+                save_uploaded_file(request.FILES['json'])
+
+                # First read JSON-file and get the data.
+                # Then parse data and add persons to database.
+                add_names_to_database(read_names_json())
     except KeyError:
         print("Error handling the uploaded file. No file was given.")
 
-
     context = {
-        'json_file_form': uploaded_file
+        'uploaded_file': uploaded_file
 
     }
     return render(request, 'upload/upload.html', context)
 
 
-def handle_uploaded_file(f):
+def save_uploaded_file(f):
     with open('names.json', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
@@ -67,35 +60,17 @@ def handle_uploaded_file(f):
 
 def read_names_json():
     with open('names.json', 'r') as f:
-        data = json.load(f)     # loads
+        data = json.load(f)
 
     pprint(data)
     return data
 
 
 def add_names_to_database(data):
-    #print(json)
-
-    print(data["names"])
-    print(data["names"][0])
+    # in json-file go through every person in list "names"
     for person in data["names"]:
-        print(not Person.objects.filter(name=person["name"], amount=person["amount"]).exists())
+        # if person doesnt exist, add person.
         if not Person.objects.filter(name=person["name"], amount=person["amount"]).exists():
-
             person_obj = Person(name=person["name"], amount=person["amount"])
             print(person_obj)
             person_obj.save()
-
-        #print(person["name"])
-        #person_obj.name = person["name"]
-        #person_obj.amount = person["amount"]
-
-
-    """
-    for lists in data.items():
-        for lst in lists:
-            for person in lst:
-                for name in person:
-                    print(name)
-    """
-
