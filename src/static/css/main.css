@@ -1,0 +1,93 @@
+/* Main */
+body,
+html {
+    margin:0;
+    padding:0;
+}
+
+ul {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+li {
+    display: inline;
+}
+
+label {
+    font-weight:bold;
+}
+
+
+
+/* Typography */
+
+h1 {
+    margin:0;
+}
+
+/* Classes */
+
+.navbar {
+    padding-top:1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.navbar-color {
+    background-color: #009AA4;
+}
+
+.navbar-nav li a {
+    color: #fff !important;
+    font-size:20px;
+}
+
+.link-btn:hover {
+    background-color:#FF4C00;
+}
+
+
+.main-content {
+    width:70%;
+    height:auto;
+    margin:50px auto;
+}
+
+
+.card-header-color {
+    background-color:rgb(224, 223, 250);
+}
+
+.check_layout {
+    border: 1px solid black;
+}
+
+
+
+/* Provider links css in Login view  */
+/* Neat test */
+/* .provider_button{
+    border: 2mm ridge green;
+    padding: 4px;
+    color: yellow;
+    background-color: darkblue;
+} */
+.provider_button{
+    border: 2mm ridge rgb(96, 132, 209);
+    padding: 4px;
+    background-color: rgb(140, 165, 221);
+    border-radius: 12%;
+    box-shadow: 3px 3px 5px rgb(74, 103, 163);
+
+}
+.container-div{
+    border: 1mm rgb(60, 60, 60);
+    border-style: groove;
+    margin: 0 25% 0 25%;
+    background-color: rgb(211, 211, 211);
+    box-shadow: 5px 5px 3px rgb(119, 119, 119);
+}
+
+
+

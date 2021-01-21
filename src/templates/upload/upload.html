@@ -5,20 +5,18 @@ Names
 {% endblock title %}
 
 {% block content %}
+
 <div class="main-content">
     <header>
     <h1>Name-lister</h1>
     </header>
 
-    <nav>
-        <b>
-        <a href="{% url 'home' %}">Home</a>
-        &nbsp
-            <a href="{% url 'upload' %}">Upload</a>
+   <hr>
 
-        </b>
-    </nav>
-    <br>
+
+
+        {% include 'navbar.html' %}
+
                      <hr>
 
         <h3>Upload JSON</h3>

@@ -66,23 +66,36 @@ def handle_uploaded_file(f):
 
 
 def read_names_json():
-    with open('names.json') as f:
+    with open('names.json', 'r') as f:
         data = json.load(f)     # loads
 
     pprint(data)
     return data
 
 
-def add_names_to_database(json):
-    personForm = PersonForm()
+def add_names_to_database(data):
     #print(json)
-    for lists in json.items():
+
+    print(data["names"])
+    print(data["names"][0])
+    for person in data["names"]:
+        print(not Person.objects.filter(name=person["name"], amount=person["amount"]).exists())
+        if not Person.objects.filter(name=person["name"], amount=person["amount"]).exists():
+
+            person_obj = Person(name=person["name"], amount=person["amount"])
+            print(person_obj)
+            person_obj.save()
+
+        #print(person["name"])
+        #person_obj.name = person["name"]
+        #person_obj.amount = person["amount"]
+
+
+    """
+    for lists in data.items():
         for lst in lists:
             for person in lst:
                 for name in person:
                     print(name)
-
-       # personObj = personForm.save(commit=False)
-     #   personObj.name = name
-     #   personObj.amount = amount
+    """
 
