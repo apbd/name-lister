@@ -6,7 +6,7 @@ include/
 pip-selfcheck.json
 
 # Django related 
-mysite/mysite/settings.py
+name-lister/src/settings.py
 static-cdn/  # any collected static files 
 Scripts
 
@@ -137,4 +137,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 src/db.sqlite3
-src/src/__pycache__/urls.cpython-37.pyc
+name-lister/src/__pycache__/urls.cpython-37.pyc
