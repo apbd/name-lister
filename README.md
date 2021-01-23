@@ -23,4 +23,11 @@ http://localhost:8000/upload/
   ]  
 }  
 ```
+## How to start:
 
+1. Download ZIP (or clone)  
+2. Start PowerShell/Terminal at ..\name-lister-main\src  
+3. Run this command: py manage.py migrate --run-syncdb  
+4. Then this command: py manage.py runserver  
+5. Go to http://localhost:8000/names/  
+6. Upload JSON  
