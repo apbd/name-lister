@@ -13,6 +13,7 @@ Scripts
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*.py[cod]
 *$py.class
 
 # C extensions
@@ -70,7 +71,7 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-mysite/db.sqlite3
+src/db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:
@@ -135,5 +136,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-mysite/db.sqlite3
-mysite/mysite/__pycache__/urls.cpython-37.pyc
+src/db.sqlite3
+src/src/__pycache__/urls.cpython-37.pyc
