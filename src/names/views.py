@@ -25,8 +25,14 @@ def names_view(request, *args, **kwargs):
         if len(name_list) == 0:
             messages.error(request, "Search is case sensitive.")
 
+    # Total names counter
+    total_names = len(name_list)
+    if total_names == 0:
+        messages.error(request, "No names found.")
+
     context = {
         'name_list': name_list,
+        'total_names': total_names
     }
 
     return render(request, 'names/names.html', context)
@@ -46,7 +52,11 @@ def upload_view(request):
 
                 # First read JSON-file and get the data.
                 # Then parse data and add persons to database.
-                add_names_to_database(read_names_json())
+                try:
+                    add_names_to_database(read_names_json())
+                except:
+                    messages.error(request, "Adding names to database failed. Problem with file. Expected JSON-file with list named 'names'.")
+
     except KeyError:
         print("Error handling the uploaded file. No file was given.")
 
@@ -64,10 +74,15 @@ def save_uploaded_file(f):
 
 
 def read_names_json():
-    with open('names.json', 'r') as f:
-        data = json.load(f)
+    try:
+        with open('names.json', 'r') as f:
+            data = json.load(f)
 
-    pprint(data)
+        pprint(data)
+    except:
+        print("Reading names from JSON-file failed.")
+        return None
+
     return data
 
 
@@ -79,3 +94,5 @@ def add_names_to_database(data):
             person_obj = Person(name=person["name"], amount=person["amount"])
             print(person_obj)
             person_obj.save()
+
+

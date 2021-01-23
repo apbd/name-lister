@@ -25,7 +25,9 @@ Name Lister
             </table>
 
         </form>
-        {% if messages %}
+
+    </div>
+     {% if messages %}
             <div>
             {% for message in messages %}
                 <div class="alert alert-info" role="alert">
@@ -34,8 +36,8 @@ Name Lister
             {% endfor%}
             </div>
         {% endif %}
-    </div>
     <div class="main-table">
+        <h5>Total Names: {{total_names}}</h5>
         <table class="table">
             <tr>
                 <th>Name</th>

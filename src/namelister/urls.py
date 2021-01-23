@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from names.views import names_view, upload_view #sort_names, sort_amount
+from names.views import names_view, upload_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Person, UploadJsonFile
+from .models import Person
 
 
 class PersonForm(ModelForm):
@@ -7,8 +7,3 @@ class PersonForm(ModelForm):
         model = Person
         fields = '__all__'
 
-
-class UploadJsonFileForm(ModelForm):
-    class Meta:
-        model = UploadJsonFile
-        fields = '__all__'
