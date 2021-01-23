@@ -1,8 +1,8 @@
 # name-lister
 Django web application which lets you upload a JSON file 
-that contains a list of names and integers. <br>
+that contains a list of JSON objects (name and amount). <br>
 
-The names and integers are outputted as a list which the user can order by name or integer or search by name. 
+The names and amounts are outputted as a list which the user can order by name or amount or search by name. 
 
 ### Routes: <br>
 http://localhost:8000/names/    <br>
