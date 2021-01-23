@@ -8,7 +8,7 @@ The names and integers are outputted as a list which the user can order by name 
 http://localhost:8000/names/    <br>
 http://localhost:8000/upload/
 
-###JSON Example:
+### JSON Example:
 ```
 {  
   "names": [  
