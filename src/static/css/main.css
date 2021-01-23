@@ -25,6 +25,8 @@ label {
 
 h1 {
     margin:0;
+    text-align: center;
+
 }
 
 /* Classes */
@@ -49,11 +51,17 @@ h1 {
 
 
 .main-content {
-    width:70%;
+    width:40%;
     height:auto;
     margin:50px auto;
-}
+    }
 
+.main-table {
+    width:40%;
+    height:auto;
+    margin:50px auto;
+    text-align:center;
+    }
 
 .card-header-color {
     background-color:rgb(224, 223, 250);

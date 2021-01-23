@@ -12,13 +12,18 @@ import json
 from pprint import pprint
 
 
-def names_view(request):
+def names_view(request, *args, **kwargs):
     name_list = Person.objects.all()
 
-    if request.GET.get('sort') == "ascending":
+    # what table order is needed
+    if request.GET.get('sortamount') == "Sort by amount":
         name_list = Person.objects.order_by('-amount')[0:]
-    elif request.GET.get('sort') == "descending":
-        name_list = Person.objects.order_by('amount')[0:]
+    elif request.GET.get('sortnames') == "Sort by name":
+        name_list = Person.objects.order_by('name')[0:]
+    elif request.GET.get('search'):
+        name_list = Person.objects.filter(name=request.GET.get('search'))
+        if len(name_list) == 0:
+            messages.error(request, "Search is case sensitive.")
 
     context = {
         'name_list': name_list,

@@ -10,16 +10,11 @@ Name Lister
     <header>
     <h1>Name Lister</h1>
     </header>
-
-   <hr>
-
-
-
+    <hr>
         {% include 'navbar.html' %}
+    <hr>
 
-                     <hr>
-
-        <h3>Upload JSON</h3>
+    <h3>Upload JSON</h3>
     <br>
 
         <form method="POST" enctype="multipart/form-data">
@@ -30,6 +25,5 @@ Name Lister
         </form>
         <p>Uploaded file: {{uploaded_file}}</p>
 
-    </div>
 </div>
 {% endblock content %}

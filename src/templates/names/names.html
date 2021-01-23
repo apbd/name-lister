@@ -12,12 +12,30 @@ Name Lister
    <hr>
         {% include 'navbar.html' %}
    <hr>
-    <div>
-            <button type="sort" name="ascending">Sort names (asc)</button>
-        <button type="sort" name="descending">Sort names (des)</button>
+    <div class="main-table">
+        <form action="/names/"  method="get" >
+            <table>
+                <tr>
+                    <th colspan="2"> <input type="text" name = "search" placeholder="Search by name"></th>
+                    <th>  <input type="submit"value="Search"/></th>
+                    <th></th>
+                    <th>  <input class="btn btn-secondary" type="submit" name="sortnames" value="Sort by name"/></th>
+                    <th>  <input class="btn btn-secondary" type="submit" name="sortamount" value="Sort by amount"/></th>
+                </tr>
+            </table>
 
+        </form>
+        {% if messages %}
+            <div>
+            {% for message in messages %}
+                <div class="alert alert-info" role="alert">
+                    {{message}}
+                </div>
+            {% endfor%}
+            </div>
+        {% endif %}
     </div>
-    <div>
+    <div class="main-table">
         <table class="table">
             <tr>
                 <th>Name</th>
