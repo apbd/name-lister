@@ -8,31 +8,31 @@ Name Lister
 
 <div class="main-content">
     <header>
-    <h1>Name Lister</h1>
+        <h1>Name Lister</h1>
     </header>
     <hr>
         {% include 'navbar.html' %}
     <hr>
-
-    <h3>Upload JSON</h3>
-    <br>
-
+    <div>
+        <h3>Upload JSON</h3>
+        <br>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-
-        <input type="file" name="json" class="btn btn-primary form-submit-btn">
+            <input type="file" name="json" class="btn btn-primary form-submit-btn">
             <button type="submit">Upload file</button>
         </form>
+
         <p>Uploaded file: {{uploaded_file}}</p>
 
         {% if messages %}
-            <div>
+        <div>
             {% for message in messages %}
-                <div class="alert alert-info" role="alert">
-                    {{message}}
-                </div>
-            {% endfor%}
+            <div class="alert alert-info" role="alert">
+                {{message}}
             </div>
+            {% endfor%}
+        </div>
         {% endif %}
+    </div>
 </div>
 {% endblock content %}

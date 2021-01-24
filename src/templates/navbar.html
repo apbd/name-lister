@@ -1,7 +1,12 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <b><a  href="{% url 'home' %}">Home</a>
-        &nbsp
-        <a href="{% url 'upload' %}">Upload JSON-file</a>
-    </b>
+
+<nav class="navbar-expand-lg bg-light">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'upload' %}">Upload JSON-file</a>
+        </li>
+    </ul>
 </nav>

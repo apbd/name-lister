@@ -22,8 +22,6 @@ urlpatterns = [
 
     # names view
     path('names/', names_view, name="home"),
-    path('names/sort-by-name/', names_view, name="sortnames"),
-    path('names/sort-by-amount/', names_view, name="sortamount"),
 
     # upload view
     path('upload/', upload_view, name="upload"),

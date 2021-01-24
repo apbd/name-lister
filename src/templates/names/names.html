@@ -5,13 +5,14 @@ Name Lister
 {% endblock title %}
 
 {% block content %}
+
 <div class="main-content">
     <header>
-    <h1>Name Lister</h1>
+        <h1>Name Lister</h1>
     </header>
-   <hr>
+    <hr>
         {% include 'navbar.html' %}
-   <hr>
+    <hr>
     <div class="main-table">
         <form action="/names/"  method="get" >
             <table>
@@ -23,19 +24,19 @@ Name Lister
                     <th>  <input class="btn btn-secondary" type="submit" name="sortamount" value="Sort by amount"/></th>
                 </tr>
             </table>
-
         </form>
-
     </div>
-     {% if messages %}
-            <div>
-            {% for message in messages %}
-                <div class="alert alert-info" role="alert">
-                    {{message}}
-                </div>
-            {% endfor%}
-            </div>
-        {% endif %}
+
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div class="alert alert-info" role="alert">
+            {{message}}
+        </div>
+        {% endfor%}
+    </div>
+    {% endif %}
+
     <div class="main-table">
         <h5>Total Names: {{total_names}}</h5>
         <table class="table">
@@ -43,15 +44,14 @@ Name Lister
                 <th>Name</th>
                 <th>Amount</th>
             </tr>
-        {% for person in name_list %}
-             <tr>
-                  <td>{{person.name}}</td>
-                  <td>{{person.amount}}</td>
-
-              </tr>
-              {% endfor %}
-            </table>
-        </div>
+            {% for person in name_list %}
+            <tr>
+                <td>{{person.name}}</td>
+                <td>{{person.amount}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
 
 </div>

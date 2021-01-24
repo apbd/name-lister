@@ -5,7 +5,6 @@ from django.contrib import messages
 
 from .forms import PersonForm
 
-# Create your views here.
 from .models import Person
 
 import json
@@ -14,12 +13,17 @@ from pprint import pprint
 
 def names_view(request, *args, **kwargs):
     name_list = Person.objects.all()
+    print("yes", request.GET.get('search'))
 
-    # what table order is needed
-    if request.GET.get('sortamount') == "Sort by amount":
-        name_list = Person.objects.order_by('-amount')[0:]
-    elif request.GET.get('sortnames') == "Sort by name":
-        name_list = Person.objects.order_by('name')[0:]
+    # what table order/sort is needed
+    # if server receives get request named "sortamount"
+    if request.GET.get('sortamount'):
+        # order name_list by amount (prefix '-' for descending)
+        name_list = Person.objects.order_by('-amount')
+
+    elif request.GET.get('sortnames'):
+        name_list = Person.objects.order_by('name')
+
     elif request.GET.get('search'):
         name_list = Person.objects.filter(name=request.GET.get('search'))
         if len(name_list) == 0:
@@ -55,7 +59,8 @@ def upload_view(request):
                 try:
                     add_names_to_database(read_names_json())
                 except:
-                    messages.error(request, "Adding names to database failed. Problem with file. Expected JSON-file with list named 'names'.")
+                    messages.error(request, "Adding names to database failed. Problem with file. "
+                                            "Expected JSON-file with list named 'names'.")
 
     except KeyError:
         print("Error handling the uploaded file. No file was given.")
