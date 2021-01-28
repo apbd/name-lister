@@ -26,8 +26,9 @@ http://localhost:8000/upload/
 ## How to start:
 
 1. Download ZIP (or clone)  
-2. Start PowerShell/Terminal at ..\name-lister-main\src  
-3. Run this command: py manage.py migrate --run-syncdb  
-4. Then this command: py manage.py runserver  
-5. Go to http://localhost:8000/names/  
-6. Upload JSON  
+2. Start PowerShell/Terminal at ..\name-lister-main\src 
+3. Install Django and other dependencies (pip install -r requirements.txt)
+4. Run this command: py manage.py migrate --run-syncdb  
+5. Then this command: py manage.py runserver  
+6. Go to http://localhost:8000/names/  
+7. Upload JSON  
