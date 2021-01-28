@@ -27,7 +27,7 @@ http://localhost:8000/upload/
 
 1. Download ZIP (or clone)  
 2. Start PowerShell/Terminal at ..\name-lister-main\src 
-3. Install Django and other dependencies (pip install -r requirements.txt)
+3. Install Django==3.1.2
 4. Run this command: py manage.py migrate --run-syncdb  
 5. Then this command: py manage.py runserver  
 6. Go to http://localhost:8000/names/  
